@@ -13,8 +13,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'quotes-detail.html',
 })
 export class QuotesDetailPage {
-
+  quoteDetail: {quote: '', author: ''};
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.quoteDetail = navParams.get('quote');
   }
 
   ionViewDidLoad() {
