@@ -47,6 +47,11 @@ export class QuotesListPage {
     }
   }
 
+  itemTapped(event, quote) {
+    console.log(quote);
+    this.navCtrl.push(QuotesDetailPage, {quote: quote});
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuotesListPage');
   }
