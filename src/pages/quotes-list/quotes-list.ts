@@ -26,7 +26,7 @@ export class QuotesListPage {
       .subscribe(
         data => {
           this.quotesList = data.quotes;
-          console.log(this.quotesList);
+          // console.log(this.quotesList);
         },
         err => console.error("Error: " + err),
         () => console.log("Read Quotes Completed")
@@ -44,11 +44,14 @@ export class QuotesListPage {
       });
       this.isfiltered = true;
       this.filteredQuotes = filteredJson;
+    } else {
+      this.isfiltered = false;
+      this.filteredQuotes = [];
     }
   }
 
   itemTapped(event, quote) {
-    console.log(quote);
+    // console.log(quote);
     this.navCtrl.push(QuotesDetailPage, {quote: quote});
   }
 
