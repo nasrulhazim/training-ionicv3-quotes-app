@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 /**
  * Generated class for the QuotesDetailPage page.
@@ -14,8 +15,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class QuotesDetailPage {
   quoteDetail: {quote: '', author: ''};
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing) {
     this.quoteDetail = navParams.get('quote');
+  }
+
+  twitterShare(){
+    console.log("in twitter share");
+    
+    let quote: string = this.quoteDetail.quote;
+    
+    this.socialSharing.shareViaTwitter(quote.substring(0,110)+"..",null /*Image*/,"http://ionicframework.com/img/homepage/ionicview-icon_2x.png")
+      .then((data )=>{
+        alert("Success "+data);
+      },
+      (err)=>{
+        alert("failed "+err)
+      });
   }
 
   ionViewDidLoad() {

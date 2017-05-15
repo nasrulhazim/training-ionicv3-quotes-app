@@ -16,4 +16,7 @@
 <ion-content padding>
   <h5>{{ quoteDetail.author }}</h5>
   <p>{{ quoteDetail.quote }}</p>
+  <ion-item (click)="twitterShare()">
+    <ion-icon name="logo-twitter">Share on Twitter</ion-icon>
+  </ion-item>
 </ion-content>
